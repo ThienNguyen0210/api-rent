@@ -1,0 +1,99 @@
+/* Avatar dropdown. Colors are scoped to the popup and follow the app theme
+   (data-theme is set from ThemeContext), so it works in light and dark.
+   To match your app exactly, point these 6 variables at your own tokens. */
+.user-menu { position: relative; }
+button.avatar { border: 0; cursor: pointer; font: inherit; }
+button.avatar:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+.user-menu-pop {
+  --um-bg: #ffffff;
+  --um-fg: #111318;
+  --um-muted: #6b7280;
+  --um-line: rgba(17, 19, 24, .09);
+  --um-hover: rgba(17, 19, 24, .06);
+  --um-shadow: 0 12px 32px rgba(17, 19, 24, .14), 0 2px 6px rgba(17, 19, 24, .06);
+  --um-danger: #dc2626;
+
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  border-radius: 14px;
+  background: var(--um-bg);
+  color: var(--um-fg);
+  border: 1px solid var(--um-line);
+  box-shadow: var(--um-shadow);
+  z-index: 50;
+  color-scheme: light;
+}
+.user-menu-pop[data-theme="dark"] {
+  --um-bg: #1a1d24;
+  --um-fg: #eef0f4;
+  --um-muted: #9aa1ae;
+  --um-line: rgba(255, 255, 255, .10);
+  --um-hover: rgba(255, 255, 255, .07);
+  --um-shadow: 0 16px 40px rgba(0, 0, 0, .55), 0 2px 8px rgba(0, 0, 0, .35);
+  --um-danger: #f87171;
+  color-scheme: dark;
+}
+
+.user-menu-email {
+  padding: 8px 10px 10px;
+  margin-bottom: 4px;
+  font-size: .82rem;
+  color: var(--um-muted);
+  border-bottom: 1px solid var(--um-line);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-menu-theme {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--um-fg);
+  font: inherit;
+  font-size: .92rem;
+  text-align: left;
+  cursor: pointer;
+}
+.user-menu-theme:hover,
+.user-menu-theme:focus-visible { background: var(--um-hover); outline: none; }
+.user-menu-theme span { width: 18px; text-align: center; color: var(--um-muted); }
+
+.user-menu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 10px 10px;
+  margin-top: 4px;
+  border-top: 1px solid var(--um-line);
+}
+.user-menu-label { font-size: .75rem; letter-spacing: .02em; color: var(--um-muted); }
+.user-menu-item .seg { display: flex; width: 100%; }
+.user-menu-item .seg button { flex: 1; }
+
+.user-menu-logout {
+  width: 100%;
+  margin-top: 4px;
+  padding: 9px 10px;
+  justify-content: flex-start;
+  border: 0;
+  border-top: 1px solid var(--um-line);
+  border-radius: 0 0 9px 9px;
+  background: transparent;
+  color: var(--um-danger);
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.user-menu-logout:hover { background: var(--um-hover); }

@@ -1,0 +1,220 @@
+.terms {
+  --t-text: #1c2033;
+  --t-muted: #5b6178;
+  --t-accent: #4f46e5;
+  --t-line: rgba(100, 110, 180, 0.18);
+  --t-panel: rgba(255, 255, 255, 0.78);
+
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+  color: var(--t-text);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Header */
+.terms-header {
+  max-width: 680px;
+  margin-bottom: 40px;
+}
+.terms-header h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+.terms-updated {
+  display: inline-block;
+  margin: 0 0 20px;
+  padding: 3px 12px;
+  border: 1px solid var(--t-line);
+  border-radius: 999px;
+  background: var(--t-panel);
+  color: var(--t-muted);
+  font-size: 0.85rem;
+}
+.terms-header p:last-child {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--t-muted);
+}
+
+/* Two-column layout */
+.terms-layout {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+/* Contents */
+.terms-toc {
+  position: sticky;
+  top: 88px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+.terms-toc h2 {
+  margin: 0 0 10px;
+  padding-left: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--t-muted);
+}
+.terms-toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: toc;
+  border-left: 1px solid var(--t-line);
+}
+.terms-toc li {
+  counter-increment: toc;
+}
+.terms-toc a {
+  display: block;
+  margin-left: -1px;
+  padding: 6px 14px;
+  border-left: 2px solid transparent;
+  color: var(--t-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+.terms-toc a::before {
+  content: counter(toc) '. ';
+}
+.terms-toc a:hover,
+.terms-toc a:focus-visible {
+  color: var(--t-accent);
+  border-left-color: var(--t-accent);
+  outline: none;
+}
+
+/* Body panel */
+.terms-body {
+  padding: 8px 44px;
+  border: 1px solid var(--t-line);
+  border-radius: 16px;
+  background: var(--t-panel);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.terms-section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--t-line);
+  scroll-margin-top: 88px;
+}
+.terms-section:last-child {
+  border-bottom: 0;
+}
+.terms-section h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 14px;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+.terms-num {
+  min-width: 1.6em;
+  color: var(--t-accent);
+  font-variant-numeric: tabular-nums;
+}
+.terms-section p {
+  max-width: 68ch;
+  margin: 0 0 12px;
+  color: #3a3f55;
+}
+.terms-section p:last-child {
+  margin-bottom: 0;
+}
+.terms-section ul {
+  max-width: 68ch;
+  margin: 4px 0 12px;
+  padding: 0;
+  list-style: none;
+}
+.terms-section li {
+  position: relative;
+  padding: 0 0 8px 22px;
+  color: #3a3f55;
+}
+.terms-section li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--t-accent);
+  opacity: 0.55;
+}
+
+/* Contact */
+.terms-contact {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 24px;
+  margin: 0;
+}
+.terms-contact dt {
+  color: var(--t-muted);
+}
+.terms-contact dd {
+  margin: 0;
+  font-weight: 500;
+}
+.terms-contact a {
+  color: var(--t-accent);
+}
+
+/* Tablet / mobile */
+@media (max-width: 860px) {
+  .terms {
+    padding: 36px 16px 64px;
+  }
+  .terms-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .terms-toc {
+    position: static;
+    max-height: none;
+    padding: 16px 8px;
+    border: 1px solid var(--t-line);
+    border-radius: 16px;
+    background: var(--t-panel);
+  }
+  .terms-toc ol {
+    columns: 2;
+    border-left: 0;
+  }
+  .terms-toc a {
+    margin-left: 0;
+    border-left: 0;
+  }
+  .terms-body {
+    padding: 4px 20px;
+  }
+}
+@media (max-width: 520px) {
+  .terms-toc ol {
+    columns: 1;
+  }
+}

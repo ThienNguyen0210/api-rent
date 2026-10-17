@@ -1,0 +1,5 @@
+/* "Tokens by key" card on Overview. Builds on overview.css (w-card, w-ch, w-bar, w-mrow, w-state). */
+.w-ktok .w-mrow .r { gap: 12px; }
+.w-ktok .w-mrow .r > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.w-ktok .w-mrow .r > span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.w-ktok .off { opacity: .6; }

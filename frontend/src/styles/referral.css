@@ -1,0 +1,21 @@
+/* Refer a Friend. Builds on the overview.css primitives (w-card, w-btn, w-table, ...). */
+.w-ref { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.w-ref h3 { margin: 0 0 4px; }
+.w-ref p { margin: 0; }
+.w-ref-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 18px; font-weight: 600; letter-spacing: .14em;
+  padding: 7px 14px; border-radius: 8px;
+  border: 1px dashed var(--ac); color: var(--ac); user-select: all;
+}
+.ref-claim { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.ref-claim input {
+  flex: 1 1 200px; min-width: 0; padding: 9px 12px; border-radius: 8px; font: inherit;
+  letter-spacing: .12em; text-transform: uppercase;
+  border: 1px solid var(--bd, rgba(128,128,128,.35)); background: transparent; color: inherit;
+}
+.ref-claim input:focus-visible { outline: 2px solid var(--ac); outline-offset: 1px; }
+.ref-msg { margin: 10px 0 0; font-size: 14px; }
+.ref-msg.err { color: #DC2626; }
+.ref-msg.ok { color: #16A34A; }
+.ref-done { display: flex; align-items: center; gap: 10px; margin-top: 12px; }

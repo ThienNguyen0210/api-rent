@@ -1,0 +1,13 @@
+{
+  "currency": "USD",
+  "baseCentsPerMillion": 20,
+  "minTokens": 50000,
+  "maxTokens": 1000000000,
+  "stepTokens": 50000,
+  "packages": [
+    { "id": "starter", "tokens": 5000000,   "discountPct": 10 },
+    { "id": "growth",  "tokens": 25000000,  "discountPct": 20, "popular": true },
+    { "id": "pro",     "tokens": 100000000, "discountPct": 30 },
+    { "id": "scale",   "tokens": 500000000, "discountPct": 35 }
+  ]
+}

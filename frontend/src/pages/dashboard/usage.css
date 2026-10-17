@@ -1,0 +1,35 @@
+/* Styles for pages/Usage. Colors fall back to the design tokens used in the mock. */
+.u-page{display:flex;flex-direction:column;gap:16px}
+.u-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.u-head h2{margin:0}
+.u-head p{margin:4px 0 0}
+.u-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.u-delta{display:block;font-size:12.5px;font-weight:500;margin-top:2px}
+.u-cols{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px}
+.u-main,.u-side{min-width:0}
+.u-side{display:flex;flex-direction:column;gap:16px}
+@media (max-width:1000px){.u-cols{grid-template-columns:1fr}}
+.u-chart{position:relative;width:100%}
+.u-chart svg{display:block;overflow:visible}
+.u-grid{stroke:var(--border,#E2E8F0);stroke-dasharray:3 3}
+.u-axis{font-size:11px;fill:var(--muted,#64748B)}
+.u-tip{position:absolute;transform:translate(-50%,-130%);background:#0F172A;color:#fff;padding:6px 10px;border-radius:8px;font-size:12px;white-space:nowrap;pointer-events:none}
+.u-bar{height:6px;border-radius:99px;background:var(--border,#E2E8F0);overflow:hidden;margin:8px 0 4px}
+.u-bar>div{height:100%;border-radius:99px;background:#4F46E5;transition:width .5s}
+.u-dotc{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;flex:none}
+.u-status{list-style:none;margin:8px 0 0;padding:0}
+.u-status li{display:flex;align-items:center;padding:6px 0}
+.u-status small{margin-left:auto}
+.u-filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.u-filters select{height:34px;padding:0 10px;border:1px solid var(--border,#E2E8F0);border-radius:8px;background:inherit;color:inherit}
+.u-n{text-align:right}
+.u-menu{position:relative}
+.u-pop{position:absolute;right:0;top:calc(100% + 6px);min-width:170px;background:var(--card,#fff);border:1px solid var(--border,#E2E8F0);border-radius:12px;box-shadow:0 10px 30px rgba(15,23,42,.15);padding:6px;z-index:20}
+.u-pop button{display:block;width:100%;text-align:left;padding:8px 10px;border:0;background:none;color:inherit;border-radius:8px;cursor:pointer}
+.u-pop button:hover{background:rgba(100,116,139,.12)}
+.u-pg{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+.u-pg div{display:flex;gap:4px}
+.u-pg button{min-width:34px;height:34px;border:1px solid var(--border,#E2E8F0);background:transparent;color:inherit;border-radius:8px;cursor:pointer}
+.u-pg button[aria-current=page]{background:#4F46E5;border-color:#4F46E5;color:#fff}
+.u-pg button:disabled{opacity:.4;cursor:not-allowed}
+@media print{.u-actions,.u-filters,.u-pg{display:none}}

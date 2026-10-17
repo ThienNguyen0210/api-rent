@@ -1,0 +1,11 @@
+.sup-thread { margin-top: .9rem; display: grid; gap: .6rem; }
+.sup-reply { padding: .6rem .8rem; border-radius: .6rem; border: 1px solid color-mix(in srgb, currentColor 14%, transparent); max-width: 46rem; }
+.sup-reply.admin { background: color-mix(in srgb, #2563eb 8%, transparent); border-color: color-mix(in srgb, #2563eb 35%, transparent); }
+.sup-reply.user { margin-left: auto; background: color-mix(in srgb, currentColor 5%, transparent); }
+.sup-reply.unread { box-shadow: 0 0 0 2px #ef4444; }
+.sup-reply-hd { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; font-size: .85em; }
+.sup-reply-hd strong { font-weight: 600; }
+.sup-reply .sup-body { margin: .3rem 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.sup-new { padding: 0 .45rem; border-radius: 999px; background: #ef4444; color: #fff; font-size: .75em; font-weight: 700; }
+.sup-replyform { display: grid; gap: .5rem; }
+.sup-replyform textarea { width: 100%; box-sizing: border-box; }

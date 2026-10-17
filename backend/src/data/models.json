@@ -1,0 +1,78 @@
+{
+  "models": [
+    {
+      "key": "chatgpt",
+      "modelId": "GPT-6",
+      "name": "GPT-6",
+      "description": {
+        "en": "ChatGPT-backed chat model.",
+        "vi": "Mô hình trò chuyện dựa trên ChatGPT."
+      },
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTU0t7c2fac7ag3N4reY1ushRMUJOAmr6IlC1z8D8mIg&s",
+      "provider": "OpenAI",
+      "category": [
+        "chat"
+      ],
+      "capabilities": [
+        "text"
+      ],
+      "contextTokens": 10000,
+      "pricePer1k": null,
+      "pricing": {
+        "inputPer1k": null,
+        "outputPer1k": null
+      },
+      "status": "active"
+    },
+    {
+      "key": "gemini",
+      "modelId": "Gemini-3.5-Flash",
+      "name": "Gemini-3.5-Flash",
+      "description": {
+        "en": "Gemini-backed chat model.",
+        "vi": "Mô hình trò chuyện dựa trên Gemini."
+      },
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5TCRSsVAMd1VNGyn0rAD1ZIiRN3td_6oAvW3xi1IOTw&s=10",
+      "provider": "Google",
+      "category": [
+        "chat",
+        "vision"
+      ],
+      "capabilities": [
+        "text"
+      ],
+      "contextTokens": null,
+      "pricePer1k": null,
+      "pricing": {
+        "inputPer1k": null,
+        "outputPer1k": null
+      },
+      "status": "active"
+    },
+    {
+      "key": "claude",
+      "modelId": "Claude-Haiku-4.5",
+      "name": "Claude-Haiku-4.5",
+      "description": {
+        "en": "Claude by Anthropic (Sonnet and Haiku), served through the Claude web app.",
+        "vi": "Claude của Anthropic (Sonnet và Haiku), phục vụ qua ứng dụng web Claude."
+      },
+      "image": "https://cdn.shopaccino.com/igmguru/articles/what-is-claude-ai-3528943545200277l-77872966344016_l.webp?v=548",
+      "provider": "claude",
+      "category": [
+        "chat",
+        "code"
+      ],
+      "capabilities": [
+        "text"
+      ],
+      "contextTokens": 200000,
+      "pricePer1k": 0.005,
+      "pricing": {
+        "inputPer1k": 0.001,
+        "outputPer1k": 0.005
+      },
+      "status": "active"
+    }
+  ]
+}

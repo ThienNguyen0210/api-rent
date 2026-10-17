@@ -1,0 +1,13 @@
+/* Notifications page. Builds on the overview.css primitives (w-card, w-hd, w-state, ...). */
+.ntf-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.w-card.ntf { border-left: 4px solid var(--ntf, var(--ac)); }
+.ntf-info    { --ntf: var(--ac); }
+.ntf-update  { --ntf: #7C3AED; }
+.ntf-warning { --ntf: #D97706; }
+.ntf-success { --ntf: #16A34A; }
+.ntf-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; font-size: 13px; }
+.ntf-tag { font-weight: 600; color: var(--ntf, var(--ac)); }
+.ntf h3 { margin: 0 0 6px; }
+.ntf-body { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.55; max-width: 72ch; }
+.ntf-link { display: inline-block; margin-top: 10px; font-size: 14px; font-weight: 600; color: var(--ac); }
+.ntf-link:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; border-radius: 4px; }

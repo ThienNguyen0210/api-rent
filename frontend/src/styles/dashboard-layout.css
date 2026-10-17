@@ -1,0 +1,77 @@
+/* Dashboard shell: fixed sidebar + fixed top bar; only .dash-main scrolls (with the page).
+   Import AFTER your existing layout CSS. Point the --nav-* tokens at your own if you prefer. */
+.dash{
+  --side-w:240px; --top-h:60px;
+  --nav-bg:#ffffff; --nav-fg:#0F172A; --nav-muted:#64748B; --nav-line:#E2E8F0; --nav-hover:#F1F5F9;
+  --nav-active-bg:#EEF2FF; --nav-active-fg:#4F46E5; --nav-chip:#EEF2FF;
+  display:block; height:auto; min-height:100vh; overflow:visible;
+}
+.dash[data-theme="dark"]{
+  --nav-bg:#111827; --nav-fg:#F1F5F9; --nav-muted:#94A3B8; --nav-line:#1F2937; --nav-hover:#1F2937;
+  --nav-active-bg:#1E1B4B; --nav-active-fg:#A5B4FC; --nav-chip:#1E1B4B;
+}
+
+/* ---- Sidebar (fixed) ---- */
+.dash .side{
+  position:fixed; top:0; left:0; bottom:0; width:var(--side-w); z-index:40;
+  display:flex; flex-direction:column; gap:20px; padding:18px 14px;
+  background:var(--nav-bg); color:var(--nav-fg); border-right:1px solid var(--nav-line);
+  overflow-y:auto; overscroll-behavior:contain; transition:transform .25s ease;
+}
+.dash .side-brand{display:flex;align-items:center;justify-content:space-between;padding:0 6px;min-height:32px}
+.dash .side-close,.dash .topbar-burger{display:none;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--nav-line);border-radius:9px;background:transparent;color:var(--nav-fg);cursor:pointer}
+.dash .side-nav{display:flex;flex-direction:column;gap:2px}
+.dash .side-nav a{
+  display:flex; align-items:center; gap:12px; padding:9px 10px; border-radius:10px;
+  color:var(--nav-muted); font-weight:500; text-decoration:none; transition:background .15s,color .15s;
+}
+.dash .side-nav a:hover{background:var(--nav-hover);color:var(--nav-fg)}
+.dash .side-nav a.active{background:var(--nav-active-bg);color:var(--nav-active-fg)}
+.dash .side-nav a:focus-visible,.dash .topbar-burger:focus-visible,.dash .side-close:focus-visible{outline:2px solid var(--nav-active-fg);outline-offset:2px}
+.dash .ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---- Content column: offset by the fixed sidebar and top bar ---- */
+.dash .dash-col{margin-left:var(--side-w);padding-top:var(--top-h);min-width:0;min-height:100vh;display:flex;flex-direction:column}
+.dash .dash-main{flex:1;min-width:0}
+
+/* ---- Top bar (fixed) ---- */
+.dash .topbar{
+  position:fixed; top:0; left:var(--side-w); right:0; height:var(--top-h); z-index:30;
+  display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0 24px;
+  background:var(--nav-bg); color:var(--nav-fg); border-bottom:1px solid var(--nav-line);
+}
+@supports (backdrop-filter:blur(8px)){
+  .dash .topbar{background:color-mix(in srgb,var(--nav-bg) 88%,transparent);backdrop-filter:saturate(140%) blur(10px)}
+}
+.dash .topbar-title{display:flex;align-items:center;gap:10px;min-width:0}
+.dash .topbar-title strong{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dash .topbar-chip{width:30px;height:30px;border-radius:9px;background:var(--nav-chip);color:var(--nav-active-fg);display:grid;place-items:center}
+
+/* ---- Avatar menu icons ---- */
+.dash .user-menu-theme .ic{color:var(--um-muted)}
+.dash .user-menu-logout{display:flex;align-items:center;gap:10px}
+
+/* ---- Tablet / mobile: sidebar becomes a drawer ---- */
+.dash .dash-scrim{display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:35}
+@media (max-width:860px){
+  .dash .side{transform:translateX(-100%);box-shadow:none}
+  .dash .side.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.25)}
+  .dash .dash-scrim.open{display:block}
+  .dash .dash-col{margin-left:0}
+  .dash .topbar{left:0;padding:0 14px}
+  .dash .side-close,.dash .topbar-burger{display:inline-flex}
+}
+@media (prefers-reduced-motion:reduce){.dash .side{transition:none}}
+
+/* ---- Full-width content: never let a legacy max-width squeeze the page ---- */
+.dash .dash-col{width:auto;max-width:none;box-sizing:border-box}
+.dash .dash-main{width:100%;max-width:none;margin:0;box-sizing:border-box;padding:28px 32px 48px}
+.dash .dash-main > :not(.w2){max-width:none}
+@media (max-width:860px){.dash .dash-main{padding:16px}}
+
+/* ---- Fix: squeezed / narrow page content ----
+   main.jsx imports App (and this file) BEFORE global.css, so global.css is emitted last and its
+   single-class rule `.dash{display:grid;grid-template-columns:220px 1fr}` beat the `.dash{display:block}`
+   at the top of this file. .dash-col then landed in a 220px grid column and lost its width.
+   `body .dash` has higher specificity, so this wins regardless of import order. */
+body .dash{display:block;grid-template-columns:none}

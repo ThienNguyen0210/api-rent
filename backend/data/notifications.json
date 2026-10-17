@@ -1,0 +1,29 @@
+[
+  {
+    "id": "welcome-notifications",
+    "date": "2026-10-03T00:00:00Z",
+    "type": "info",
+    "title": {
+      "en": "Welcome to the notification center",
+      "vi": "Chào mừng đến trung tâm thông báo"
+    },
+    "body": {
+      "en": "Announcements about new features and maintenance will appear here.",
+      "vi": "Các thông báo về tính năng mới và bảo trì sẽ xuất hiện tại đây."
+    }
+  },
+  {
+    "id": "referral-launch",
+    "date": "2026-10-03T01:00:00Z",
+    "type": "update",
+    "title": {
+      "en": "New: Refer a Friend",
+      "vi": "Mới: Giới thiệu bạn bè"
+    },
+    "body": {
+      "en": "Share your referral code. You and your friend each get 1,000,000 tokens.",
+      "vi": "Chia sẻ mã giới thiệu của bạn. Bạn và bạn bè mỗi người nhận 1.000.000 token."
+    },
+    "url": "/dashboard/referral"
+  }
+]
